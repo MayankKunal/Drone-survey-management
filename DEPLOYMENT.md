@@ -37,18 +37,22 @@ This guide covers deploying the Drone Survey Management System to production.
 
 2. **Create new project** and select "Deploy from GitHub repo"
 
-3. **Configure the project**:
-   - Set **Root Directory** to `server`
+3. **IMPORTANT - Configure the project**:
+   - Go to **Settings** → **Root Directory**
+   - Set **Root Directory** to: `server` ⚠️ **This is critical!**
    - Add environment variables:
      ```
      PORT=5000
      NODE_ENV=production
+     CORS_ORIGIN=https://your-frontend-url.vercel.app
      ```
    - Railway will auto-detect Node.js and deploy
 
 4. **Get your Railway URL** (e.g., `https://your-app.railway.app`)
 
 5. **Update Vercel environment variable** with your Railway URL
+
+**⚠️ Common Issue**: If you see "next: not found" error, you forgot to set Root Directory to `server`. See [RAILWAY_SETUP.md](./RAILWAY_SETUP.md) for detailed instructions.
 
 ## Option 2: Render (Full Stack)
 

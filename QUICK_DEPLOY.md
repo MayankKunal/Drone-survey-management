@@ -16,13 +16,17 @@ git push -u origin main
 1. Go to [railway.app](https://railway.app) and sign up
 2. Click "New Project" → "Deploy from GitHub repo"
 3. Select your repository
-4. Click on the service → Settings
-5. Set **Root Directory** to `server`
-6. Add environment variable:
+4. **CRITICAL**: Click on the service → **Settings** tab
+5. Scroll to **Root Directory** and set it to: `server` ⚠️ **This is required!**
+6. Add environment variables:
    - Key: `CORS_ORIGIN`
    - Value: `https://your-frontend.vercel.app` (update after frontend deploy)
+   - Key: `NODE_ENV`
+   - Value: `production`
 7. Railway will auto-deploy
 8. Copy your Railway URL (e.g., `https://your-app.railway.app`)
+
+**⚠️ If you see "next: not found" error**: You forgot to set Root Directory to `server`. This is the most common mistake!
 
 ### Step 3: Deploy Frontend (Vercel)
 
